@@ -1,0 +1,26 @@
+title: Patrick Brown's Dev Blog
+author: Patrick Brown
+email: root@patrickbrown.dev
+description: >-
+  Fields notes from a software engineer
+baseurl: ""
+url: "https://blog.patrickbrown.dev"
+
+markdown: kramdown
+theme: cascades
+plugins:
+  - jekyll-feed
+header_pages:
+  - about.md
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - Dockerfile
+  - Makefile
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - cascades/
