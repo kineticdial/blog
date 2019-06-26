@@ -4,7 +4,7 @@ email: root@patrickbrown.dev
 description: >-
   Fields notes from a software engineer
 baseurl: ""
-url: "https://blog.patrickbrown.dev"
+url: "https://patrickbrown.dev"
 
 markdown: kramdown
 theme: cascades
