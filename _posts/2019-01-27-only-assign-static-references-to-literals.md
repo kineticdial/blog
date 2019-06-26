@@ -3,7 +3,7 @@ layout: post
 title:  "Only assign static references to literals"
 date:   2019-01-27 16:02:38 -0700
 categories: java
-header_image: https://cdn-images-1.medium.com/max/1600/1*c3Q-atTk4pg4R5AaqmGUlQ.jpeg
+header_image: /assets/images/java_code.jpg
 header_image_caption: Photo by Maximilian Weisbecker on Unsplash
 ---
 

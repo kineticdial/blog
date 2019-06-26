@@ -3,7 +3,7 @@ layout: post
 title: Freeze your constants in Ruby
 date:   2019-01-11 16:02:38 -0700
 categories: ruby
-header_image: https://cdn-images-1.medium.com/max/1600/1*OM6P3_cnsr1SRg_k8hXdzg.jpeg
+header_image: /assets/images/glacier.jpg
 header_image_caption: Photo by Agustín Lautaro on Unsplash
 ---
 Years ago I was working on a very large Ruby on Rails codebase that used
