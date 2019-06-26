@@ -18,9 +18,9 @@ exclude:
   - Gemfile.lock
   - Dockerfile
   - Makefile
+  - .gitlab-ci.yml
   - node_modules
   - vendor/bundle/
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
-  - cascades/

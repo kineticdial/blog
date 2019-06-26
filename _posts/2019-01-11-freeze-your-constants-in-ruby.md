@@ -7,7 +7,10 @@ header_image: https://cdn-images-1.medium.com/max/1600/1*OM6P3_cnsr1SRg_k8hXdzg.
 header_image_caption: Photo by Agustín Lautaro on Unsplash
 ---
 Years ago I was working on a very large Ruby on Rails codebase that used
-constants to hold lists of credit card transaction states. For example:
+constants to hold lists of credit card transaction states. In this post I'll be
+covering why _freezing_ these constants is paramount.
+
+Consider this example:
 
 ```ruby
 # example 1
