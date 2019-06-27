@@ -17,6 +17,16 @@ before_script:
   - apt-get update && apt-get -y install rsync
   - bundle install
 
+deploy_staging:
+  stage: deploy
+  script:
+    - make deploy_staging
+  artifacts:
+    paths:
+      - _site
+  except:
+    - master
+
 deploy:
   stage: deploy
   script:
