@@ -1,0 +1,33 @@
+---
+layout: default
+---
+
+<div class="jumbotron rounded-0">
+    <div class="container text-center text-white">
+        <h1 class="display-4 text-white">{{ site.title }}</h1>
+        <p class="lead">{{ site.description }}</p>
+    </div>
+</div>
+
+<div class="container">
+    {{ content }}
+
+    <!-- <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2> -->
+    {%- for post in site.posts -%}
+    <a class="post-link" href="{{ post.url | relative_url }}">
+        <div class="card mt-4 mb-4 text-dark rounded-0">
+
+            <img src="{{ post.header_image }}" class="card-img rounded-0">
+
+            <div class="card-body">
+                {%- assign date_format = site.minima.date_format | default: "%B %-d, %Y" -%}
+                <p class="card-text text-muted">
+                    <small>{{ post.date | date: date_format }}</small>
+                </p>
+                <h3 class="card-title">{{ post.title | escape }}</h3>
+                <p class="card-text lead">{{ post.excerpt}}</p>
+            </div>
+        </div>
+    </a>
+    {%- endfor -%}
+</div>

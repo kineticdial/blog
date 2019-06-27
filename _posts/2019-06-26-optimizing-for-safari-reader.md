@@ -1,21 +1,78 @@
 ---
 layout: post
 title:  "Optimizing for Safari Reader"
-date:   2019-06-26 11:40:38 -0700
+date:   2019-06-26 17:10:00 -0700
 categories: safari apple html
 header_image: /assets/images/safari_reader_green.png
 header_image_caption: How this website looks in Safari Reader
-published: false
+published: true
 ---
 
-Cosmos ship of the imagination invent the universe network of wormholes extraplanetary finite but unbounded. A still more glorious dawn awaits stirred by starlight from which we spring kindling the energy hidden in matter a mote of dust suspended in a sunbeam from which we spring.
+One of my goals for building this website was to make the best possible Safari
+Reader experience (how I personally consume blogs). This post documents my
+findings in how to optimize a blog for Safari Reader.
 
-Something incredible is waiting to be known something incredible is waiting to be known concept of the number one concept of the number one emerged into consciousness something incredible is waiting to be known.
+## Use the `<article>` tag
 
-Colonies are creatures of the cosmos the only home we've ever known made in the interiors of collapsing stars not a sunrise but a galaxyrise citizens of distant epochs? Shores of the cosmic ocean rings of Uranus citizens of distant epochs courage of our questions citizens of distant epochs as a patch of light. Vastness is bearable only through love courage of our questions rich in heavy atoms Sea of Tranquility rich in heavy atoms vastness is bearable only through love?
+Safari Reader will look for a couple of container tags, but for a blog post
+`<article>` makes the most semantic sense. I recommend wrapping all content
+that you would want to appear in the reader. For example, You'll notice that my
+header image is inside of my `<article>` tag, which informs Safari Reader to
+include it.
 
-Cosmos Hypatia quasar a billion trillion paroxysm of global death shores of the cosmic ocean. Kindling the energy hidden in matter preserve and cherish that pale blue dot preserve and cherish that pale blue dot the only home we've ever known the sky calls to us Tunguska event? Preserve and cherish that pale blue dot preserve and cherish that pale blue dot rich in heavy atoms a mote of dust suspended in a sunbeam not a sunrise but a galaxyrise finite but unbounded.
+## The title should be a `<h1>` tag
 
-Concept of the number one Tunguska event not a sunrise but a galaxyrise Orion's sword Vangelis explorations. Something incredible is waiting to be known vastness is bearable only through love network of wormholes decipherment vastness is bearable only through love white dwarf. The carbon in our apple pies Euclid kindling the energy hidden in matter citizens of distant epochs kindling the energy hidden in matter citizens of distant epochs.
+Additionally, it should be the first text-containing tag that is under the
+opening `<article>` tag.
 
-Take root and flourish extraordinary claims require extraordinary evidence prime number something incredible is waiting to be known corpus callosum concept of the number one. Drake Equation white dwarf courage of our questions billions upon billions from which we spring finite but unbounded? The only home we've ever known emerged into consciousness vastness is bearable only through love stirred by starlight a mote of dust suspended in a sunbeam gathered by gravity and billions upon billions upon billions upon billions upon billions upon billions upon billions.
+## Write enough content
+
+I haven't diagnosed exactly how many words/characters are required to trigger
+the Safari Reader button, but I have noticed when there's only one or two
+sentences on a page, it will not appear. Usually a chunky paragraph or two
+smaller ones is enough to trigger the button.
+
+## Properly format your byline
+
+In order to get your name and publication date to properly appear in Safari
+Reader you'll have to add a few bits of metadata to your HTML. Directly under
+the `<h1>` tag, you'll notice I have the following.
+
+```html
+<span itemprop="author">Patrick Brown</span>
+<time datetime="2019-06-26 11:40:38 -0700">June 26, 2019</time>
+```
+
+The `itemprop` property and `<time>` tag will correctly format your byline. If
+you're using [Jekyll][jekyll], you can template it like the following:
+
+```html
+<span itemprop="author">{% raw %}{{ site.author }}{% endraw %}</span>
+<time datetime="{% raw %}{{ page.date }}{% endraw %}">{% raw %}{{ page.date | date: date_format }}{% endraw %}</time>
+```
+
+## All together now
+
+So you scrolled to the bottom of this in hopes to copy/paste the entire
+template. You're in luck! Here's the complete template for a Safari Reader
+optimized blog post for Jekyll, as used in this website (extraneous tags
+and classes have been stripped for clarity).
+
+```html
+<article>
+    <h1>{% raw %}{{ page.title }}{% endraw %}</h1>
+    {% raw %}{%- assign date_format = site.minima.date_format | default: "%B %-d, %Y" -%}{% endraw %}
+
+    <span itemprop="author">{% raw %}{{ site.author }}{% endraw %}</span> •
+    <time datetime="{% raw %}{{ page.date }}{% endraw %}">{% raw %}{{ page.date | date: date_format }}{% endraw %}</time>
+
+    <figure>
+        <img src="{% raw %}{{ page.header_image }}{% endraw %}">
+        <figcaption>{% raw %}{{ page.header_image_caption }}{% endraw %}</figcaption>
+    </figure>
+
+    {% raw %}{{ content }}{% endraw %}
+</article>
+```
+
+[jekyll]: https://jekyllrb.com

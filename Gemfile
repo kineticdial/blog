@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 gem "jekyll", "~> 3.8.5"
-gem "cascades", git: "git://github.com/kineticdial/cascades.git"
+gem "cascades", path: "./_themes/cascades"
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do

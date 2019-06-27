@@ -1,0 +1,51 @@
+---
+---
+
+@import "syntax_highlighting";
+
+$pab-blue: rgba(45, 142, 253, 1);
+$pab-green: rgb(34, 195, 138);
+
+.post-link:hover {
+    text-decoration: none;
+}
+
+body {
+    font-size: 18px;
+    font-family: Charter, Georgia, 'Times New Roman', Times, serif;
+}
+
+.jumbotron {
+    background: $pab-green;
+    background: linear-gradient(30deg, $pab-green 0%, $pab-blue 100%);
+}
+
+.container {
+    max-width: 40em;
+}
+
+a, a:hover {
+    color: $pab-blue;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.navbar, .jumbotron, small {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.jumbotron {
+    .lead {
+        font-family: Charter, Georgia, 'Times New Roman', Times, serif;
+    }
+}
+
+pre {
+    padding: 1em;
+}
+
+h1,h2,h3,h4,h5 {
+    color: $pab-green;
+}
