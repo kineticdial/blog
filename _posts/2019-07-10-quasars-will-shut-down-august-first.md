@@ -23,7 +23,7 @@ At the beginning of the next month I'll be pulling the plug on [Quasars][quasars
 
 With that said, it's been a good run Quasars. See you on the other side.
 
-{% include image.html url="/assets/images/quasars_landing.png" caption="A screenshot of the Quasars website" %}
+{% include image.html url="/assets/images/quasars_screenshot.png" caption="A screenshot of the Quasars website" %}
 
 [quasars]: https://quasa.rs
 [k8s]: https://kubernetes.io
