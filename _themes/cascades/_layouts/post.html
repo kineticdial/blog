@@ -2,14 +2,14 @@
 layout: default
 ---
 
-<article>
+<article itemscope itemtype="http://schema.org/Article">
     <div class="jumbotron rounded-0">
         <div class="container text-center text-white">
             <h1 class="display-4 text-white">{{ page.title }}</h1>
-            {%- assign date_format = site.minima.date_format | default: "%B %-d, %Y" -%}
+            {%- assign date_format = "%B %-d, %Y" -%}
             <div class="lead">
                 <span itemprop="author">{{ site.author }}</span> •
-                <time datetime="{{ page.date }}">{{ page.date | date: date_format }}</time>
+                <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: date_format }}</time>
             </div>
         </div>
     </div>
