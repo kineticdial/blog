@@ -1,6 +1,7 @@
 ---
 ---
 
+@import "bootstrap/bootstrap";
 @import "syntax_highlighting";
 
 $pab-blue: rgba(45, 142, 253, 1);
@@ -42,4 +43,12 @@ pre {
 
 h1,h2,h3,h4,h5 {
     color: $pab-green;
+}
+
+.text-pab-green {
+    color: $pab-green !important;
+}
+
+.img-tinted {
+    filter: brightness(50%);
 }
