@@ -1,11 +1,9 @@
 default: build
 
 build:
-	bundle exec jekyll clean
-	bundle exec jekyll build
-
-run: build
-	bundle exec jekyll serve --watch
+	docker build -t kineticdial/blog . 
+	docker run -v $(shell pwd):/blog kineticdial/blog jekyll clean
+	docker run -v $(shell pwd):/blog kineticdial/blog jekyll build
 
 deploy: build
 	rsync -r _site/ root@patrickbrown.dev:/var/www/patrickbrown.dev/

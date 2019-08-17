@@ -5,7 +5,7 @@ description: >-
   Fields notes from a software engineer
 baseurl: ""
 url: "https://patrickbrown.dev"
-
+host: 0.0.0.0
 markdown: kramdown
 theme: cascades
 plugins:
@@ -17,6 +17,7 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - Dockerfile
+  - docker-compose.yaml
   - Makefile
   - .gitlab-ci.yml
   - node_modules
@@ -24,3 +25,4 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
+  - .github/workflows/
