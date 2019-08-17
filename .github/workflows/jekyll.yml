@@ -13,12 +13,8 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Build the site in the jekyll/builder container
-      run: |
-        # eval $(ssh-agent -s)
-        echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
-        mkdir -p ~/.ssh
-        chmod 700 ~/.ssh
-        echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
-        chmod 644 ~/.ssh/known_hosts
-        # apt-get update && apt-get -y install rsync
-        make deploy
+      run: make build
+    - uses: actions/upload-artifact@master
+      with:
+        name: site
+        path: _site
